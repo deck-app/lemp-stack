@@ -16,15 +16,15 @@ user:
     target:
       PHP_VERSION
 
-  install_xdebug:
-    label:
-      Install XDEBUG?
-    type:
-      checkbox
-    hint:
-      Check to enable XDEBUG installation
-    target:
-      INSTALL_XDEBUG
+  # install_xdebug:
+  #   label:
+  #     Install XDEBUG?
+  #   type:
+  #     checkbox
+  #   hint:
+  #     Check to enable XDEBUG installation
+  #   target:
+  #     INSTALL_XDEBUG
   # mysql_version:
   #   label:
   #     MySQL version
@@ -63,4 +63,5 @@ system:
     http:
       SERVER_PORT
     others:
-
+      MYSQL_PORT
+      PMA_PORT
