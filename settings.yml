@@ -45,7 +45,7 @@ user:
     values:
       /var/www
     hint:
-      Server document root
+      Server document root, make sure to append "/public" if you are going to install a framework like Laravel
     target:
       SERVER_ROOT
 
@@ -55,13 +55,10 @@ system:
     true
   #For collecting and storing DB in .env
   #db/user/password
-  db_credentials:
-    true
+  # db_credentials:
+  #   true
   #Generate public ports for the docker image
   ports:
     http:
       NGINX_HOST_HTTP_PORT
     others:
-      - MYSQL_PORT
-      - PMA_PORT
-
