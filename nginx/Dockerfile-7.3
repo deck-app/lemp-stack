@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM --platform=linux/x86_64 alpine:3.9
 LABEL maintainer Naba Das <hello@get-deck.com>
 ARG BUILD_DATE
 ARG VCS_REF
@@ -50,6 +50,8 @@ ARG DEPS="\
         php7.3-session \
         php7.3-fileinfo \
         php7.3-mysqli \
+        php7.3-pdo \
+        php7.3-gd \
         php7.3-iconv \
         php7.3-json \
         php7.3-posix \
