@@ -99,13 +99,13 @@ sed -i "s#{DISPLAY}#Off#g" /etc/php/7.0/php.ini \
 ;fi
 
 #mongodb version update
-ARG MONGODB_VERSION
-RUN if [ ${MONGODB_VERSION} = true ]; then \
-pecl install mongodb \
-&& echo "extension=mongodb.so" > /etc/php/7.0/conf.d/mongodb.ini \
-;else \
-apk add php7.0-mongodb \
-;fi
+#ARG MONGODB_VERSION
+#RUN if [ ${MONGODB_VERSION} = true ]; then \
+#pecl install mongodb \
+#&& echo "extension=mongodb.so" > /etc/php/7.0/conf.d/mongodb.ini \
+#;else \
+#apk add php7.0-mongodb \
+#;fi
 
 EXPOSE 80
 RUN chmod +x /sbin/runit-wrapper
