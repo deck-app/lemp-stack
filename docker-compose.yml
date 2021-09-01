@@ -37,4 +37,4 @@ services:
       - '${PMA_PORT}:80'
 volumes:
   phpmyadmin:
-    driver: '${VOLUMES_DRIVER}'
+    {}
