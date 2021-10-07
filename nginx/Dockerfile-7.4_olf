@@ -1,4 +1,4 @@
-FROM --platform=linux/x86_64 alpine:edge
+FROM --platform=linux/x86_64 alpine:3.9
 LABEL maintainer Naba Das <hello@get-deck.com>
 ARG BUILD_DATE
 ARG VCS_REF
@@ -13,50 +13,49 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.url="https://github.com/phpearth/docker-php"
 
 # PHP_INI_DIR to be symmetrical with official php docker image
-ENV PHP_INI_DIR /etc/php/7
+ENV PHP_INI_DIR /etc/php/7.4
 
 # When using Composer, disable the warning about running commands as root/super user
 ENV COMPOSER_ALLOW_SUPERUSER=1
-RUN echo "@ec http://dl-cdm.alpinelinux.org/alpine/edge/community/aarch64/" >> /etc/apk/repositories
 
 # Persistent runtime dependencies
 ARG DEPS="\
         nginx \
         nginx-mod-http-headers-more \
-        php7 \
-        php7-phar \
-        php7-bcmath \
-        php7-calendar \
-        php7-mbstring \
-        php7-exif \
-        php7-ftp \
-        php7-openssl \
-        php7-zip \
-        php7-sysvsem \
-        php7-sysvshm \
-        php7-sysvmsg \
-        php7-shmop \
-        php7-sockets \
-        php7-zlib \
-        php7-bz2 \
-        php7-curl \
-        php7-simplexml \
-        php7-xml \
-        php7-opcache \
-        php7-dom \
-        php7-xmlreader \
-        php7-xmlwriter \
-        php7-tokenizer \
-        php7-ctype \
-        php7-session \
-        php7-fileinfo \
-        php7-mysqli \
-        php7-iconv \
-        php7-json \
-        php7-posix \
-        php7-fpm \
-        php7-dev \
-        php7-pear \
+        php7.4 \
+        php7.4-phar \
+        php7.4-bcmath \
+        php7.4-calendar \
+        php7.4-mbstring \
+        php7.4-exif \
+        php7.4-ftp \
+        php7.4-openssl \
+        php7.4-zip \
+        php7.4-sysvsem \
+        php7.4-sysvshm \
+        php7.4-sysvmsg \
+        php7.4-shmop \
+        php7.4-sockets \
+        php7.4-zlib \
+        php7.4-bz2 \
+        php7.4-curl \
+        php7.4-simplexml \
+        php7.4-xml \
+        php7.4-opcache \
+        php7.4-dom \
+        php7.4-xmlreader \
+        php7.4-xmlwriter \
+        php7.4-tokenizer \
+        php7.4-ctype \
+        php7.4-session \
+        php7.4-fileinfo \
+        php7.4-mysqli \
+        php7.4-iconv \
+        php7.4-json \
+        php7.4-posix \
+        php7.4-fpm \
+        php7.4-dev \
+        php7.4-pear \
         curl \
         ca-certificates \
         runit \
@@ -82,17 +81,27 @@ ARG SERVER_ROOT
 RUN sed -i "s#{SERVER_ROOT}#$SERVER_ROOT#g" /etc/nginx/conf.d/default.conf
 VOLUME [ "/var/www/" ]
 WORKDIR /var/www
-COPY php_ini/php7.4.ini /etc/php7/php.ini
+COPY php_ini/php7.4.ini /etc/php/7.4/php.ini
 
 #Composer install
-RUN apk add composer
+RUN apk add curl
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# ARG DISPLAY_PHPERROR
-# RUN if [ ${DISPLAY_PHPERROR} = true ]; then \
-# sed -i "s#{DISPLAY}#On#g" /etc/php/7.4/php.ini \
-# ;else \
-# sed -i "s#{DISPLAY}#Off#g" /etc/php/7.4/php.ini \
-# ;fi
+ARG DISPLAY_PHPERROR
+RUN if [ ${DISPLAY_PHPERROR} = true ]; then \
+sed -i "s#{DISPLAY}#On#g" /etc/php/7.4/php.ini \
+;else \
+sed -i "s#{DISPLAY}#Off#g" /etc/php/7.4/php.ini \
+;fi
+
+#mongodb version update
+ARG MONGODB_VERSION
+RUN if [ ${MONGODB_VERSION} = true ]; then \
+pecl install mongodb \
+&& echo "extension=mongodb.so" > /etc/php/7.4/conf.d/mongodb.ini \
+;else \
+apk add php7.4-mongodb \
+;fi
 
 EXPOSE 80
 RUN chmod +x /sbin/runit-wrapper
