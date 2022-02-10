@@ -1,8 +1,8 @@
-name: Nginx Stack
+name: LEMP Stack
 
 on:
   schedule:
-  - cron:  '30 4,16 * * *'
+  - cron:  '30 5,17 * * *'
   push:
     branches: [ master ]
   pull_request:
