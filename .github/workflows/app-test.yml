@@ -54,7 +54,7 @@ jobs:
       run:  docker exec lemp-stack_mariadb_1 mysql -uroot -ppassword -e "SHOW DATABASES"
     - name: Database connection check
       run: |
-        docker exec lemp-stack_nginx_1 wget -O /var/www/db.php https://raw.githubusercontent.com/nabad600/github-status/main/connection.php?token=GHSAT0AAAAAABQXH527O3SAWLSDPECBHEJCYQEYCCA
+        docker exec lemp-stack_nginx_1 wget -O /var/www/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
         docker exec lemp-stack_nginx_1 php /var/www/db.php
     - name: Destroy Container and file
       run:  |
