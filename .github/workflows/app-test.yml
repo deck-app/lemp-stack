@@ -82,19 +82,19 @@ jobs:
           DATA_PATH_HOST: /tmp/db
           MARIADB_VERSION:  latest
     - name: PHP version check
-      run : docker exec lempstack_nginx_1 php -v
+      run : docker exec lemp-stack_nginx_1 php -v
     - name: Mongodb driver check
-      run:  docker exec lempstack_nginx_1 php -m | grep mongo
+      run:  docker exec lemp-stack_nginx_1 php -m | grep mongo
     - name: Mysql Driver check
-      run: docker exec lempstack_nginx_1 php -m | grep mysqli
+      run: docker exec lemp-stack_nginx_1 php -m | grep mysqli
     - name: Composer test
-      run: docker exec lempstack_nginx_1 composer
+      run: docker exec lemp-stack_nginx_1 composer
     - name: Web site Test
       run: |
-        docker exec lempstack_nginx_1 wget -O /var/www/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
+        docker exec lemp-stack_nginx_1 wget -O /var/www/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
         curl -i http://localhost:5590/
     - name: Laravel8 test
-      run:  docker exec lempstack_nginx_1 composer create-project --prefer-dist laravel/laravel:^8.0
+      run:  docker exec lemp-stack_nginx_1 composer create-project --prefer-dist laravel/laravel:^8.0
     - name: Verify MariaDB running from host, create Database and show Database
       run: |
         sleep 30s
@@ -108,8 +108,8 @@ jobs:
       run:  docker exec lempstack_mariadb_1 mysql -uroot -ppassword -e "SHOW DATABASES"
     - name: Database connection check
       run: |
-        docker exec lempstack_nginx_1 wget -O /var/www/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
-        docker exec lempstack_nginx_1 php /var/www/db.php
+        docker exec lemp-stack_nginx_1 wget -O /var/www/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
+        docker exec lemp-stack_nginx_1 php /var/www/db.php
     - name: Destroy Container 
       run: |
         docker-compose down
@@ -193,19 +193,19 @@ jobs:
           DATA_PATH_HOST: /tmp/db
           MARIADB_VERSION:  latest
     - name: PHP version check
-      run : docker exec lempstack_nginx_1 php -v
+      run : docker exec lemp-stack_nginx_1 php -v
     - name: Mongodb driver check
-      run:  docker exec lempstack_nginx_1 php -m | grep mongo
+      run:  docker exec lemp-stack_nginx_1 php -m | grep mongo
     - name: Mysql Driver check
-      run: docker exec lempstack_nginx_1 php -m | grep mysqli
+      run: docker exec lemp-stack_nginx_1 php -m | grep mysqli
     - name: Composer test
-      run: docker exec lempstack_nginx_1 composer
+      run: docker exec lemp-stack_nginx_1 composer
     - name: Web site Test
       run: |
-        docker exec lempstack_nginx_1 wget -O /var/www/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
+        docker exec lemp-stack_nginx_1 wget -O /var/www/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
         curl -i http://localhost:5590/
     - name: Laravel8 test
-      run:  docker exec lempstack_nginx_1 composer create-project --prefer-dist laravel/laravel:^8.0
+      run:  docker exec lemp-stack_nginx_1 composer create-project --prefer-dist laravel/laravel:^8.0
     - name: Verify MariaDB running from host, create Database and show Database
       run: |
         sleep 30s
@@ -219,8 +219,8 @@ jobs:
       run:  docker exec lempstack_mariadb_1 mysql -uroot -ppassword -e "SHOW DATABASES"
     - name: Database connection check
       run: |
-        docker exec lempstack_nginx_1 wget -O /var/www/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
-        docker exec lempstack_nginx_1 php /var/www/db.php
+        docker exec lemp-stack_nginx_1 wget -O /var/www/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
+        docker exec lemp-stack_nginx_1 php /var/www/db.php
     - name: Destroy Container 
       run: |
         docker-compose down
@@ -300,14 +300,14 @@ jobs:
           DATA_PATH_HOST: /tmp/db
           MARIADB_VERSION:  latest
     - name: PHP version check
-      run : docker exec lempstack_nginx_1 php -v
+      run : docker exec lemp-stack_nginx_1 php -v
     - name: Mysql Driver check
-      run: docker exec lempstack_nginx_1 php -m | grep mysqli
+      run: docker exec lemp-stack_nginx_1 php -m | grep mysqli
     - name: Composer test
-      run: docker exec lempstack_nginx_1 composer
+      run: docker exec lemp-stack_nginx_1 composer
     - name: Web site Test
       run: |
-        docker exec lempstack_nginx_1 wget -O /var/www/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
+        docker exec lemp-stack_nginx_1 wget -O /var/www/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
         curl -i http://localhost:5590/
     - name: Verify MariaDB running from host, create Database and show Database
       run: |
@@ -323,8 +323,8 @@ jobs:
       run:  docker exec lempstack_mariadb_1 mysql -uroot -ppassword -e "SHOW DATABASES"
     - name: Database connection check
       run: |
-        docker exec lempstack_nginx_1 wget -O /var/www/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
-        docker exec lempstack_nginx_1 php /var/www/db.php
+        docker exec lemp-stack_nginx_1 wget -O /var/www/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
+        docker exec lemp-stack_nginx_1 php /var/www/db.php
     - name: Destroy Container 
       run: |
         docker-compose down
