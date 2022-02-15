@@ -70,15 +70,6 @@ jobs:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v2
-    - name: Folder check
-      run:  |
-        while [ -d /tmp/app ]; do
-            echo "password" | sudo -S whoami
-            sudo rm -f /tmp/app/
-            done
-            while [ -d /tmp/db ]; do
-            echo "password" | sudo -S whoami
-            sudo rm -f /tmp/db/
     - name: Build the Docker image nginx php 8.0
       run: docker-compose -f "docker-compose.yml" up -d --build
       env:
@@ -201,15 +192,6 @@ jobs:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v2
-    - name: Folder check
-      run:  |
-        while [ -d /tmp/app ]; do
-            echo "password" | sudo -S whoami
-            sudo rm -f /tmp/app/
-            done
-            while [ -d /tmp/db ]; do
-            echo "password" | sudo -S whoami
-            sudo rm -f /tmp/db/
     - name: Build the Docker image nginx php 7.4
       run: docker-compose -f "docker-compose.yml" up -d --build
       env:
@@ -328,15 +310,6 @@ jobs:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v2
-    - name: Folder check
-      run:  |
-        while [ -d /tmp/app ]; do
-            echo "password" | sudo -S whoami
-            sudo rm -f /tmp/app/
-            done
-            while [ -d /tmp/db ]; do
-            echo "password" | sudo -S whoami
-            sudo rm -f /tmp/db/
     - name: Build the Docker image nginx php 5.6
       run: docker-compose -f "docker-compose.yml" up -d --build
       env:
