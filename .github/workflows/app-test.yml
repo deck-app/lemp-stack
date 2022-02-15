@@ -82,7 +82,7 @@ jobs:
           DB_USER:  admin
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
-          DATA_PATH_HOST: /tmp/db
+          DATA_PATH_HOST: /tmp/mariadb
           MARIADB_VERSION:  latest
     - name: PHP version check
       run : docker exec lemp-stack_nginx_1 php -v
@@ -123,9 +123,9 @@ jobs:
         echo "password" | sudo -S whoami
         sudo rm -rf /tmp/app/
         done
-        while [ -d /tmp/db ]; do
+        while [ -d /tmp/mariadb ]; do
         echo "password" | sudo -S whoami
-        sudo rm -rf /tmp/db/
+        sudo rm -rf /tmp/mariadb/
         done
         echo "y" | docker image prune -a
         echo "y" | docker volume prune
@@ -204,7 +204,7 @@ jobs:
           DB_USER:  admin
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
-          DATA_PATH_HOST: /tmp/db
+          DATA_PATH_HOST: /tmp/mariadb
           MARIADB_VERSION:  latest
     - name: PHP version check
       run : docker exec lemp-stack_nginx_1 php -v
@@ -245,9 +245,9 @@ jobs:
         echo "password" | sudo -S whoami
         sudo rm -rf /tmp/app/
         done
-        while [ -d /tmp/db ]; do
+        while [ -d /tmp/mariadb ]; do
         echo "password" | sudo -S whoami
-        sudo rm -rf /tmp/db/
+        sudo rm -rf /tmp/mariadb/
         done
         echo "y" | docker image prune -a
         echo "y" | docker volume prune
@@ -322,7 +322,7 @@ jobs:
           DB_USER:  admin
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
-          DATA_PATH_HOST: /tmp/db
+          DATA_PATH_HOST: /tmp/mariadb
           MARIADB_VERSION:  latest
     - name: PHP version check
       run : docker exec lemp-stack_nginx_1 php -v
@@ -359,9 +359,9 @@ jobs:
         echo "password" | sudo -S whoami
         sudo rm -rf /tmp/app/
         done
-        while [ -d /tmp/db ]; do
+        while [ -d /tmp/mariadb ]; do
         echo "password" | sudo -S whoami
-        sudo rm -rf /tmp/db/
+        sudo rm -rf /tmp/mariadb/
         done
         echo "y" | docker image prune -a
         echo "y" | docker volume prune
