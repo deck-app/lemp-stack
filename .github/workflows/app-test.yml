@@ -62,10 +62,10 @@ jobs:
     - name: Destroy Container and file
       run:  |
         docker-compose down
-        sudo rm -rf /tmp/app
-        sudo rm -rf /tmp/db
         echo "y" | docker image prune -a
         echo "y" | docker volume prune
+        sudo rm -rf /tmp/app
+        sudo rm -rf /tmp/db
   Nginx-PHP8-Mariadb-ARM64:
     runs-on: self-hosted
     steps:
@@ -119,6 +119,8 @@ jobs:
     - name: Destroy Container 
       run: |
         docker-compose down
+        echo "y" | docker image prune -a
+        echo "y" | docker volume prune
         while [ -d /tmp/app ]; do
         echo "password" | sudo -S whoami
         sudo rm -rf /tmp/app/
@@ -127,8 +129,6 @@ jobs:
         echo "password" | sudo -S whoami
         sudo rm -rf /tmp/mariadb/
         done
-        echo "y" | docker image prune -a
-        echo "y" | docker volume prune
         
 
   Nginx-PHP7-Mariadb-AMD64:
@@ -184,10 +184,10 @@ jobs:
     - name: Destroy Container and file
       run:  |
         docker-compose down
-        sudo rm -rf /tmp/app
-        sudo rm -rf /tmp/db
         echo "y" | docker image prune -a
         echo "y" | docker volume prune
+        sudo rm -rf /tmp/app
+        sudo rm -rf /tmp/db
   Nginx-PHP7-Mariadb-ARM64:
     runs-on: self-hosted
     steps:
@@ -241,6 +241,8 @@ jobs:
     - name: Destroy Container 
       run: |
         docker-compose down
+        echo "y" | docker image prune -a
+        echo "y" | docker volume prune
         while [ -d /tmp/app ]; do
         echo "password" | sudo -S whoami
         sudo rm -rf /tmp/app/
@@ -249,8 +251,7 @@ jobs:
         echo "password" | sudo -S whoami
         sudo rm -rf /tmp/mariadb/
         done
-        echo "y" | docker image prune -a
-        echo "y" | docker volume prune
+        
 
   
   Nginx-PHP5-Mariadb-AMD64:
@@ -302,10 +303,10 @@ jobs:
     - name: Destroy Container and file
       run:  |
         docker-compose down
-        sudo rm -rf /tmp/app
-        sudo rm -rf /tmp/db
         echo "y" | docker image prune -a
         echo "y" | docker volume prune
+        sudo rm -rf /tmp/app
+        sudo rm -rf /tmp/db
   Nginx-PHP5-Mariadb-ARM64:
     runs-on: self-hosted
     steps:
@@ -355,6 +356,8 @@ jobs:
     - name: Destroy Container 
       run: |
         docker-compose down
+        echo "y" | docker image prune -a
+        echo "y" | docker volume prune
         while [ -d /tmp/app ]; do
         echo "password" | sudo -S whoami
         sudo rm -rf /tmp/app/
@@ -363,6 +366,5 @@ jobs:
         echo "password" | sudo -S whoami
         sudo rm -rf /tmp/mariadb/
         done
-        echo "y" | docker image prune -a
-        echo "y" | docker volume prune
+        
   
