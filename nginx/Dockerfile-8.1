@@ -30,5 +30,5 @@ apk add --no-cache ${INSTALL_ADDITIONAL_EXTENSIONS} \
 ARG XDEBUG
 RUN if [ ${XDEBUG} = true ]; then \
 apk add php81-pecl-xdebug \
-&& echo "zend_extension=xdebug" >> /etc/php8/php.ini \
+&& echo "zend_extension=xdebug" >> /etc/php81/php.ini \
 ;fi
