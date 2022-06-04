@@ -25,6 +25,12 @@ echo "No additional PHP extensions added" \
 apk add --no-cache ${INSTALL_ADDITIONAL_EXTENSIONS} \
 ;fi
 
+## Linux permission issue
+ARG USER_ID
+ARG GROUP_ID
+RUN apk --no-cache add shadow
+RUN usermod -u ${USER_ID} nobody && groupmod -g ${GROUP_ID} nobody
+
 #mongodb version update not supported
 #pecl install mongodb \
 #&& echo "extension=mongodb.so" > /etc/php5/conf.d/mongodb.ini
