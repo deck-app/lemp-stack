@@ -97,7 +97,7 @@ jobs:
         sudo wget -O /tmp/app/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
         curl -i http://localhost:5590/
     - name: Laravel8 test
-      run:  docker exec lemp-stack-nginx-1 sudo composer create-project --prefer-dist laravel/laravel:^8.0
+      run:  docker exec lemp-stack-nginx-1 composer create-project --prefer-dist laravel/laravel:^8.0
     - name: Verify MariaDB running from host, create Database and show Database
       run: |
         while ! docker exec lemp-stack-mariadb-1 mysqladmin --user=root --password=password --host "mariadb" ping --silent &> /dev/null ; do
@@ -417,7 +417,7 @@ jobs:
       run:  docker exec lemp-stack_mariadb_1 mysql -uroot -ppassword -e "SHOW DATABASES"
     - name: Database connection check
       run: |
-        docker exec lemp-stack_nginx_1 sudo wget -O /var/www/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
+        sudo wget -O /tmp/app/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
         docker exec lemp-stack_nginx_1 sudo php /var/www/db.php
     - name: Destroy Container and file
       run:  |
