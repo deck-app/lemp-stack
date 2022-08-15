@@ -399,7 +399,7 @@ jobs:
       run: docker exec lemp-stack_nginx_1 composer
     - name: Web site Test
       run: |
-        docker exec lemp-stack_nginx_1 sudo wget -O /var/www/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
+        sudo wget -O /tmp/app/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
         sudo curl -I --http2 http://localhost:5590/
     - name: Verify MariaDB running from host, create Database and show Database
       run: |
