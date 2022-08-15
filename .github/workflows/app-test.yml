@@ -87,14 +87,14 @@ jobs:
     - name: PHP version check
       run : docker exec lemp-stack-nginx-1 php -v
     - name: Mongodb driver check
-      run:  docker exec lemp-stack-nginx-1 php -m | grep mongo
+      run:  docker exec lemp-stack-nginx-1 php -m
     - name: Mysql Driver check
       run: docker exec lemp-stack-nginx-1 php -m | grep mysqli
     - name: Composer test
       run: docker exec lemp-stack-nginx-1 composer
     - name: Web site Test
       run: |
-        docker exec lemp-stack-nginx-1 sudo wget -O /var/www/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
+        sudo wget -O /tmp/app/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
         curl -i http://localhost:5590/
     - name: Laravel8 test
       run:  docker exec lemp-stack-nginx-1 sudo composer create-project --prefer-dist laravel/laravel:^8.0
@@ -208,7 +208,7 @@ jobs:
     - name: PHP version check
       run : docker exec lemp-stack-nginx-1 php -v
     - name: Mongodb driver check
-      run:  docker exec lemp-stack-nginx-1 php -m | grep mongo
+      run:  docker exec lemp-stack-nginx-1 php -m 
     - name: Mysql Driver check
       run: docker exec lemp-stack-nginx-1 php -m | grep mysqli
     - name: Composer test
@@ -329,7 +329,7 @@ jobs:
     - name: PHP version check
       run : docker exec lemp-stack-nginx-1 php -v
     - name: Mongodb driver check
-      run:  docker exec lemp-stack-nginx-1 php -m | grep mongo
+      run:  docker exec lemp-stack-nginx-1 php -m
     - name: Mysql Driver check
       run: docker exec lemp-stack-nginx-1 php -m | grep mysqli
     - name: Composer test
