@@ -384,12 +384,12 @@ jobs:
           XDEBUG: true
           DISPLAY_PHPERROR: true
           SERVER_ROOT:  /var/www/
-          APP_CODE_PATH_HOST: /tmp/app
+          APP_CODE_PATH_HOST: /tmp/app/
           DB_NAME: test
           DB_USER:  admin
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
-          DATA_PATH_HOST: /tmp/db
+          DATA_PATH_HOST: /tmp/db/
           MARIADB_VERSION:  latest
     - name: PHP version check
       run : docker exec lemp-stack_nginx_1 php -v
@@ -437,12 +437,12 @@ jobs:
           XDEBUG: true
           DISPLAY_PHPERROR: true
           SERVER_ROOT:  /var/www/
-          APP_CODE_PATH_HOST: /tmp/app
+          APP_CODE_PATH_HOST: /tmp/app/
           DB_NAME: test
           DB_USER:  admin
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
-          DATA_PATH_HOST: /tmp/mariadb
+          DATA_PATH_HOST: /tmp/mariadb/
           MARIADB_VERSION:  latest
     - name: PHP version check
       run : docker exec lemp-stack-nginx-1 php -v
@@ -452,7 +452,7 @@ jobs:
       run: docker exec lemp-stack-nginx-1 composer
     - name: Web site Test
       run: |
-        docker exec lemp-stack-nginx-1 sudo wget -O /var/www/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
+        sudo wget -O /tmp/app/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
         curl -i http://localhost:5590/
     - name: Verify MariaDB running from host, create Database and show Database
       run: |
@@ -470,7 +470,7 @@ jobs:
       run:  docker exec lemp-stack-mariadb-1 mysql -uroot -ppassword -e "SHOW DATABASES"
     - name: Database connection check
       run: |
-        docker exec lemp-stack-nginx-1 sudo wget -O /var/www/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
+        wget -O /tmp/app/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
         docker exec lemp-stack-nginx-1 sudo php /var/www/db.php
     - name: Destroy Container 
       run: |
