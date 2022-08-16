@@ -82,7 +82,7 @@ jobs:
           DB_USER:  admin
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
-          DATA_PATH_HOST: /tmp/mariadb
+          DATA_PATH_HOST: /tmp/mariadb/
           MARIADB_VERSION:  latest
     - name: PHP version check
       run : docker exec lemp-stack-nginx-1 php -v
