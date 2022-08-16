@@ -415,10 +415,10 @@ jobs:
       run:  docker exec lemp-stack_mariadb_1 mysql -uroot -ppassword -e "CREATE DATABASE deckapp"
     - name: Verify Database create or not
       run:  docker exec lemp-stack_mariadb_1 mysql -uroot -ppassword -e "SHOW DATABASES"
-    - name: Database connection check
-      run: |
-        sudo wget -O /tmp/app/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
-        docker exec lemp-stack_nginx_1 sudo php /var/www/db.php
+    # - name: Database connection check
+    #   run: |
+    #     sudo wget -O /tmp/app/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
+    #     docker exec lemp-stack_nginx_1 sudo php /var/www/db.php
     - name: Destroy Container and file
       run:  |
         docker-compose down
@@ -468,10 +468,10 @@ jobs:
       run:  docker exec lemp-stack-mariadb-1 mysql -uroot -ppassword -e "CREATE DATABASE deckapp"
     - name: Verify Database create or not
       run:  docker exec lemp-stack-mariadb-1 mysql -uroot -ppassword -e "SHOW DATABASES"
-    - name: Database connection check
-      run: |
-        wget -O /tmp/app/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
-        docker exec lemp-stack-nginx-1 sudo php /var/www/db.php
+    # - name: Database connection check
+    #   run: |
+    #     wget -O /tmp/app/db.php https://raw.githubusercontent.com/nabad600/apache_php/master/connection.php
+    #     docker exec lemp-stack-nginx-1 sudo php /var/www/db.php
     - name: Destroy Container 
       run: |
         docker-compose down
