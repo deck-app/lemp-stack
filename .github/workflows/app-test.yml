@@ -70,6 +70,8 @@ jobs:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v2
+    - name: Create Drictory
+      run: mkdir /tmp/app/
     - name: Build the Docker image nginx php 8.1
       run: docker-compose -f "docker-compose.yml" up -d --build
       env:
