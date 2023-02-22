@@ -26,7 +26,7 @@ jobs:
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
           DATA_PATH_HOST: /tmp/db
-          MARIADB_VERSION:  latest
+          MARIADB_VERSION:  10.7
     - name: PHP version check
       run : docker exec lemp-stack_nginx_1 php -v
     - name: Mongodb driver check
@@ -83,7 +83,7 @@ jobs:
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
           DATA_PATH_HOST: /tmp/mariadb/
-          MARIADB_VERSION:  latest
+          MARIADB_VERSION:  10.7
     - name: PHP version check
       run : docker exec lemp-stack_nginx_1 php -v
     - name: Mongodb driver check
@@ -147,7 +147,7 @@ jobs:
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
           DATA_PATH_HOST: /tmp/db
-          MARIADB_VERSION:  latest
+          MARIADB_VERSION:  10.7
     - name: PHP version check
       run : docker exec lemp-stack_nginx_1 php -v
     - name: Mongodb driver check
@@ -204,7 +204,7 @@ jobs:
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
           DATA_PATH_HOST: /tmp/mariadb/
-          MARIADB_VERSION:  latest
+          MARIADB_VERSION:  10.7
     - name: PHP version check
       run : docker exec lemp-stack_nginx_1 php -v
     - name: Mongodb driver check
@@ -268,7 +268,7 @@ jobs:
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
           DATA_PATH_HOST: /tmp/db
-          MARIADB_VERSION:  latest
+          MARIADB_VERSION:  10.7
     - name: PHP version check
       run : docker exec lemp-stack_nginx_1 php -v
     - name: Mongodb driver check
@@ -325,7 +325,7 @@ jobs:
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
           DATA_PATH_HOST: /tmp/mariadb
-          MARIADB_VERSION:  latest
+          MARIADB_VERSION:  10.7
     - name: PHP version check
       run : docker exec lemp-stack_nginx_1 php -v
     - name: Mongodb driver check
@@ -389,7 +389,7 @@ jobs:
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
           DATA_PATH_HOST: /tmp/db
-          MARIADB_VERSION:  latest
+          MARIADB_VERSION:  10.7
     - name: PHP version check
       run : docker exec lemp-stack_nginx_1 php -v
     - name: Mongodb driver check
@@ -446,7 +446,7 @@ jobs:
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
           DATA_PATH_HOST: /tmp/mariadb
-          MARIADB_VERSION:  latest
+          MARIADB_VERSION:  10.7
     - name: PHP version check
       run : docker exec lemp-stack_nginx_1 php -v
     - name: Mongodb driver check
@@ -511,7 +511,7 @@ jobs:
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
           DATA_PATH_HOST: /tmp/db/
-          MARIADB_VERSION:  latest
+          MARIADB_VERSION:  10.7
     - name: PHP version check
       run : docker exec lemp-stack_nginx_1 php -v
     - name: Mysql Driver check
@@ -564,7 +564,7 @@ jobs:
           DB_PASSWORD:  password
           DB_ROOT_PASSWORD: password
           DATA_PATH_HOST: /tmp/mariadb/
-          MARIADB_VERSION:  latest
+          MARIADB_VERSION:  10.7
     - name: PHP version check
       run : docker exec lemp-stack_nginx_1 php -v
     - name: Mysql Driver check
