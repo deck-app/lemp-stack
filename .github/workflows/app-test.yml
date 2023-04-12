@@ -2,7 +2,7 @@ name: LEMP Stack
 
 on:
   schedule:
-  - cron:  '30 5 * * *'
+  - cron:  '31 06 * * *'
   push:
     branches: [ master ]
   pull_request:
