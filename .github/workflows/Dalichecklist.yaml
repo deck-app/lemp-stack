@@ -42,8 +42,6 @@ jobs:
         run: |
           docker exec lemp-stack_nginx_1 sudo wget -O /var/www/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
           sudo curl -I --http2 http://localhost:5590/
-      - name: Laravel8 test
-        run:  docker exec lemp-stack_nginx_1 sudo composer create-project --prefer-dist laravel/laravel:^8.0
       - name: Verify MariaDB running from host, create Database and show Database
         run: |
           while ! docker exec lemp-stack_mariadb_1 mysqladmin --user=root --password=password --host "mariadb" ping --silent &> /dev/null ; do
@@ -127,8 +125,6 @@ jobs:
         run: |
           docker exec lemp-stack_nginx_1 sudo wget -O /var/www/index.php https://raw.githubusercontent.com/deck-app/stack-preview-screen/main/install/index.html
           sudo curl -I --http2 http://localhost:5590/
-      - name: Laravel8 test
-        run:  docker exec lemp-stack_nginx_1 sudo composer create-project --prefer-dist laravel/laravel:^8.0
       - name: Verify MariaDB running from host, create Database and show Database
         run: |
           while ! docker exec lemp-stack_mariadb_1 mysqladmin --user=root --password=password --host "mariadb" ping --silent &> /dev/null ; do
