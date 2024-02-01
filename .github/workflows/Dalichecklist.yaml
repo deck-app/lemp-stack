@@ -102,12 +102,12 @@ jobs:
           mention_groups_when: "failure,warnings"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_FAIL }}
-  MariaDB-ARM64:
+  LEMP-ARM64:
     strategy:
       matrix:
         pv: ["8.2", "8.1", "8.0", "7.4", "7.2"]
     runs-on: ubuntu-22.04
-    name: MariaDB-ARM64
+    name: LEMP-ARM64
     steps:
       - uses: actions/checkout@v4
       - uses: uraimo/run-on-arch-action@v2
@@ -209,7 +209,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_FAIL }}
   
-  Apache75-AMD64:
+  LEMP-AMD64:
     strategy:
       matrix:
         pv: ["7.1", "5.6"]
@@ -300,7 +300,7 @@ jobs:
           mention_groups_when: "failure,warnings"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_FAIL }}
-  Apache75-ARM64:
+  LEMP-ARM64:
     strategy:
       matrix:
         pv: ["7.1", "5.6"]
